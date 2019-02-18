@@ -2,42 +2,44 @@
 // function to make artist objects.
 
 
-function Artist(first,middle,last) {
+function Artist(first,middle,last,img) {
 
     this.firstName = first;
 
     this.middleName = middle;
 
     this.lastName = last;
+
+    this.artistImg = img;
 }
 
 // Artist objects.
 
-var davinci = new Artist("leonardo","da","vinci");
+var davinci = new Artist("leonardo","da","vinci","assets/images/davinci.jpg");
 
-var escher = new Artist("m","c","escher");
+var escher = new Artist("m","c","escher","assets/images/escher.jpg");
 
-var polluck = new Artist("jackson","","polluck");
+var polluck = new Artist("jackson","","polluck","assets/images/polluck.jpg");
 
-var rembrandt = new Artist("rembrandt","","");
+var rembrandt = new Artist("rembrandt","","","assets/images/rembrandt.jpg");
 
-var michelangelo = new Artist("michelangelo","","");
+var michelangelo = new Artist("michelangelo","","","assets/images/michelangelo.png");
 
-var picasso = new Artist("pablo","","picasso");
+var picasso = new Artist("pablo","","picasso","assets/images/picasso.jpg");
 
-var dali = new Artist("salvador","","dali");
+var dali = new Artist("salvador","","dali","assets/images/dali.jpg");
 
-var warhol = new Artist("andy","","warhol");
+var warhol = new Artist("andy","","warhol","assets/images/warhol.jpg");
 
-var wright = new Artist("frank","lloyd","wright");
+var wright = new Artist("frank","lloyd","wright","assets/images/wright.jpg");
 
-var vangogh = new Artist("vincent","van","gogh");
+var vangogh = new Artist("vincent","van","gogh","assets/images/vangogh.jpg");
 
-var monet = new Artist("claude","","monet");
+var monet = new Artist("claude","","monet","assets/images/monet.jpg");
 
-var rockwell = new Artist("norman","","rockwell");
+var rockwell = new Artist("norman","","rockwell","assets/images/rockwell.jpg");
 
-var vermeer = new Artist("johannes","","vermeer");
+var vermeer = new Artist("johannes","","vermeer","assets/images/vermeer.jpg");
 
 //other variables and arrays
 
@@ -71,6 +73,8 @@ var guessedTxt = document.getElementById("guessedTxt");
 var nextTxt = document.getElementById("nextTxt");
 
 var scoreTxt = document.getElementById("scoreTxt");
+
+var currentImg = document.getElementById("artImage");
 
 var guessed = [];
 
@@ -199,11 +203,10 @@ document.onkeyup = function(event){
 
             artistArray.splice(artistArray.indexOf(randomArtist),1)
 
+            currentImg.src = randomArtist.artistImg;
+
             guessed = [];
 
-            console.log(randomArtist);
-
-            console.log(artistArray)
             updateAnswer();
 
             misses = maxMisses;
