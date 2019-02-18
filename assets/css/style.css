@@ -1,0 +1,20 @@
+*
+{
+    text-align: center;
+
+    color: #ffffff;
+}
+
+header
+{
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+p{
+    margin: 10px auto 10px auto;
+}
+
+body{
+    background: #000000;
+}
