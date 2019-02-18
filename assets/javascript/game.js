@@ -153,12 +153,12 @@ scoreTxt.textContent = String(score) +"/" + String(maxScore);
 //checks to see if the letter has been guessed, then checks if it's in the answer.
 //If it is, the answer is updated.  Else, the player loses a miss.
 //If the player is out of misses, they'll go to the next artist next key press.
-function letterCheck(){
-    if(guessed.includes(event.key) === false)
+function letterCheck(lttr){
+    if(guessed.includes(lttr.key) === false)
         {
             var guessStr = " ";
 
-            guessed.push(event.key)
+            guessed.push(lttr.key)
 
             for(i = 0; i < guessed.length; i++){
                 guessStr += guessed[i] + ", ";
@@ -166,9 +166,9 @@ function letterCheck(){
 
             guessedTxt.textContent = guessStr;
 
-            if(randomArtist.firstName.includes(event.key) ||
-            randomArtist.middleName.includes(event.key) ||
-            randomArtist.lastName.includes(event.key))
+            if(randomArtist.firstName.includes(lttr.key) ||
+            randomArtist.middleName.includes(lttr.key) ||
+            randomArtist.lastName.includes(lttr.key))
             {
                 updateAnswer();
             }
@@ -217,7 +217,7 @@ document.onkeyup = function(event){
         }
     }
     else{
-        letterCheck();
+        letterCheck(event);
     }
 
 
